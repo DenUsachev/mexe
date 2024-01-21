@@ -1,2 +1,2 @@
 # mexe
-Trading Market Execution Engine by ARCLite
+The Maker Execution Engine by ARCLite

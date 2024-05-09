@@ -1,38 +1,35 @@
 using System.Net;
-using MakerAPI.Domain;
+using System.Net.Mime;
 using MakerAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MakerAPI.Controllers;
 
+[Route("api/[controller]")]
 [ApiController]
-[Route("[controller]")]
-public class AccountController : ControllerBase
+[Consumes(MediaTypeNames.Application.Json)]
+[Produces(MediaTypeNames.Application.Json)]
+public class PortfolioController : ControllerBase
 {
-    private readonly ILogger<AccountController> _logger;
+    private readonly ILogger<PortfolioController> _logger;
     private readonly IBybitService _service;
 
-    public AccountController(ILogger<AccountController> logger, IBybitService service)
+    public PortfolioController(ILogger<PortfolioController> logger, IBybitService service)
     {
         _logger = logger;
         _service = service;
     }
 
     [HttpGet(Name = "GetAccountStatus")]
-    public async Task<ActionResult> Status()
+    public async Task<IActionResult> Portfolio()
     {
-        _logger.LogInformation("Trying to get status for active account");
-        var balanceResult = await _service.GetAccountBalance();
-        if (balanceResult.HttpStatusCode == HttpStatusCode.OK)
+        _logger.LogInformation("Trying to get status of the portfolio");
+        var portfolioInfoResult = await _service.GetPortfolioStatus();
+        if (portfolioInfoResult.IsOk)
         {
-            var accountStatus = new AccountStatus
-            {
-                Balance = balanceResult.Payload,
-                Timestamp = DateTime.Now
-            };
-            return Ok(accountStatus);
+            return Ok(portfolioInfoResult.Payload);
         }
 
-        return StatusCode((int)HttpStatusCode.InternalServerError);
+        return StatusCode((int)HttpStatusCode.InternalServerError, portfolioInfoResult.Error);
     }
 }

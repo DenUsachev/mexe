@@ -1,0 +1,6 @@
+﻿services:
+  makerapi:
+    image: makerapi
+    build:
+      context: .
+      dockerfile: MakerAPI/Dockerfile

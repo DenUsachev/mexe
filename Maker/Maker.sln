@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakerAPI", "MakerAPI\MakerAPI.csproj", "{26C7B9DC-3D5E-49E7-94F1-86A3A019C327}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{85824611-DC23-42E7-9F1A-D0312FAAC7B0}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse", "Warehouse\Warehouse.csproj", "{B2A277C4-6CCC-40F4-8C72-26F17CBC42C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketData", "MarketData\MarketData.csproj", "{213118EF-1A9F-43C0-A33E-6F3DC3EA2184}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indicators", "Indicators\Indicators.csproj", "{57C80062-B345-4A59-85AA-52DA1BE573EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{26C7B9DC-3D5E-49E7-94F1-86A3A019C327}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26C7B9DC-3D5E-49E7-94F1-86A3A019C327}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26C7B9DC-3D5E-49E7-94F1-86A3A019C327}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26C7B9DC-3D5E-49E7-94F1-86A3A019C327}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2A277C4-6CCC-40F4-8C72-26F17CBC42C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2A277C4-6CCC-40F4-8C72-26F17CBC42C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2A277C4-6CCC-40F4-8C72-26F17CBC42C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2A277C4-6CCC-40F4-8C72-26F17CBC42C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{213118EF-1A9F-43C0-A33E-6F3DC3EA2184}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{213118EF-1A9F-43C0-A33E-6F3DC3EA2184}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{213118EF-1A9F-43C0-A33E-6F3DC3EA2184}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{213118EF-1A9F-43C0-A33E-6F3DC3EA2184}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57C80062-B345-4A59-85AA-52DA1BE573EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57C80062-B345-4A59-85AA-52DA1BE573EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57C80062-B345-4A59-85AA-52DA1BE573EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57C80062-B345-4A59-85AA-52DA1BE573EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

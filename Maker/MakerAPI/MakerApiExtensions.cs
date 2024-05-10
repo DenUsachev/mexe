@@ -7,7 +7,7 @@ public static class MakerApiExtensions
     public static IApplicationBuilder UseMaker(this IApplicationBuilder app)
     {
         // Initialize Market Connection
-        var marketService = app.ApplicationServices.GetService<IBybitService>();
+        var marketService = app.ApplicationServices.GetService<IExchangeService>();
         var logger = app.ApplicationServices.GetService<ILogger<object>>();
         logger.LogInformation("Maker enabled");
         var makerStarted = marketService.Run();

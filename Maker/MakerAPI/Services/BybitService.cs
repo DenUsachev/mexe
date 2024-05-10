@@ -4,7 +4,7 @@ using MakerAPI.Helpers;
 
 namespace MakerAPI.Services;
 
-public class BybitService : IBybitService
+public class BybitService : IExchangeService
 {
     private readonly IConnectionContext _ctx;
 

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using System.Net.Mime;
+using MakerAPI.Domain;
 
 namespace MakerAPI.Controllers
 {
@@ -12,9 +13,9 @@ namespace MakerAPI.Controllers
     public class PositionController : ControllerBase
     {
         private readonly ILogger<PositionController> _logger;
-        private readonly IBybitService _service;
+        private readonly IExchangeService _service;
 
-        public PositionController(ILogger<PositionController> logger, IBybitService service)
+        public PositionController(ILogger<PositionController> logger, IExchangeService service)
         {
             _logger = logger;
             _service = service;
@@ -29,7 +30,7 @@ namespace MakerAPI.Controllers
             {
                 return Ok(new { Positions = positionInfo?.Payload?.ToList() });
             }
-
+            _logger.LogError(positionInfo.Error);
             return StatusCode((int)HttpStatusCode.InternalServerError);
         }
     }

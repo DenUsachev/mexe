@@ -12,15 +12,15 @@ namespace MakerAPI.Controllers;
 public class PortfolioController : ControllerBase
 {
     private readonly ILogger<PortfolioController> _logger;
-    private readonly IBybitService _service;
+    private readonly IExchangeService _service;
 
-    public PortfolioController(ILogger<PortfolioController> logger, IBybitService service)
+    public PortfolioController(ILogger<PortfolioController> logger, IExchangeService service)
     {
         _logger = logger;
         _service = service;
     }
 
-    [HttpGet(Name = "GetAccountStatus")]
+    [HttpGet(Name = "Get status of the portfolio")]
     public async Task<IActionResult> Portfolio()
     {
         _logger.LogInformation("Trying to get status of the portfolio");
@@ -29,7 +29,7 @@ public class PortfolioController : ControllerBase
         {
             return Ok(portfolioInfoResult.Payload);
         }
-
+        _logger.LogInformation("Trying to get status of the portfolio");
         return StatusCode((int)HttpStatusCode.InternalServerError, portfolioInfoResult.Error);
     }
 }

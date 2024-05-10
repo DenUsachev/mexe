@@ -11,7 +11,7 @@ builder.Host.UseSerilog((context, configuration) =>
 // Add services to the container.
 builder.Services.Configure<MakerSettings>(builder.Configuration.GetSection("MakerSettings"));
 builder.Services.AddSingleton<IConnectionContext, BybitConnectionContext>();
-builder.Services.AddSingleton<IBybitService, BybitService>();
+builder.Services.AddSingleton<IExchangeService, BybitService>();
 builder.Services.AddControllers();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

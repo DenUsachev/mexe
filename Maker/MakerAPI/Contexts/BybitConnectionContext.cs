@@ -37,6 +37,11 @@ public class BybitConnectionContext : IConnectionContext
         return true;
     }
 
+    public bool OpenWsContext()
+    {
+        throw new NotImplementedException();
+    }
+
     public async Task<ApiCallResult<PortfolioInfo>> GetPortfolioInfo()
     {
         var balancesResult = await _restClient.V5Api.Account.GetAllAssetBalancesAsync(AccountType.Unified);
@@ -44,7 +49,9 @@ public class BybitConnectionContext : IConnectionContext
 
         if (balancesResult.Success && totalsResult.Success)
         {
-            var assetTotals = balancesResult.Data.Balances.Where(it => it.WalletBalance is > 0);
+            var assetTotals = balancesResult.Data.Balances
+                .Where(it => it.WalletBalance is > 0)
+                .Select(it => new AssetInfo { WalletBalance = it.WalletBalance, Symbol = it.Asset });
             var totals = totalsResult.Data.List.Sum(it => it.TotalWalletBalance);
             return ApiCallResult<PortfolioInfo>.CreateOk(new PortfolioInfo
             {
@@ -53,7 +60,7 @@ public class BybitConnectionContext : IConnectionContext
             });
         }
 
-        return ApiCallResult<PortfolioInfo>.CreateFailed(balancesResult.Error?.Message);
+        return ApiCallResult<PortfolioInfo>.CreateFailed("Could not get portfolio info");
     }
 
     public async Task<ApiCallResult<IEnumerable<PositionInfo>>> GetOpenPositions()

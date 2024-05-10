@@ -3,7 +3,7 @@ using MakerAPI.Helpers;
 
 namespace MakerAPI.Services;
 
-public interface IBybitService
+public interface IExchangeService
 {
     public bool Run();
     public Task<ApiCallResult<PortfolioInfo>> GetPortfolioStatus();

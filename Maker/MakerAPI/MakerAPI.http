@@ -1,6 +1,11 @@
 @MakerAPI_HostAddress = http://localhost:5274
 
-GET {{MakerAPI_HostAddress}}/weatherforecast/
+GET {{MakerAPI_HostAddress}}/api/portfolio
+Accept: application/json
+
+###
+
+GET {{MakerAPI_HostAddress}}/api/position/list
 Accept: application/json
 
 ###
